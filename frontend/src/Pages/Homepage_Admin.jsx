@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../components/Homepage/Navbar";
-import Details from "../components/Homepage_Admin_Components/Details";
+import AdminDetails from "../components/Homepage_Admin_Components/AdminDetails";
+import JobPostForm from "../components/Homepage_Admin_Components/JobPostForm";
 const Homepage_Admin = () => {
     return (
         <>
-            <Navbar></Navbar>
-            <Details></Details>
+            <JobPostForm></JobPostForm>
+            <AdminDetails></AdminDetails>
         </>
     )
 }
