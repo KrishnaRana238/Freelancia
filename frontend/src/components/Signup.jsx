@@ -62,6 +62,14 @@ export default function Signup() {
 
   const createAccount = async () => {
     try {
+      if (document.getElementById("userType").value === "EMPLOYER") {
+        console.log("Setting state")
+        setSignupState((prevState) => {
+          return { ...prevState, userType: "EMPLOYER" };
+        });
+        console.log(signupState)
+      }
+
       const response = await axios.post("/api/signup_user", signupState, {
         headers: {
           "Content-Type": "application/json",
@@ -96,9 +104,13 @@ export default function Signup() {
 
           <label htmlFor="userType">You are a freelancer or client: </label>
 
-          <select name="userType" id="userType">
-            <option value="EMPLOYEE">Freelancer</option>
-            <option value="EMPLOYER">Client</option>
+          <select className="text-black" name="userType" id="userType">
+            <option className="text-black" value="EMPLOYEE">
+              Freelancer
+            </option>
+            <option className="text-black" value="EMPLOYER">
+              Client
+            </option>
           </select>
           <br />
 

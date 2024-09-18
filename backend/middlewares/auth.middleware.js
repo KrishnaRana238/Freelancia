@@ -262,7 +262,6 @@ const verifyToken = (req, res, next) => {
 
 // Employer verification
 const isEmployer = (req, res, next) => {
-  console.log("Employer verification called");
   try {
     const user = req.user;
     if (user && user.userType == "EMPLOYER") {

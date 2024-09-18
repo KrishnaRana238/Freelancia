@@ -135,7 +135,8 @@ const assignJob = async (req, res) => {
     const job_id = req.params.job_id;
     const job = await job_model.findOne({ _id: job_id });
     const employer = await user_model.findOne({ _id: req.user._id });
-    const freelancer = await user_model.findOne({ _id: req.params.user_id });
+    const freelancer_profile = await freelancerProfile_model.findOne({ _id: req.params.user_id });
+    const freelancer = await user_model.findOne({ username: freelancer_profile.username });
     const assignedJob = {
       title: job.title,
       location: job.location,

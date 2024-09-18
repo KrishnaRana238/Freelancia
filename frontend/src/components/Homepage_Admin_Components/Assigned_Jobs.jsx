@@ -1,36 +1,36 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-const Posted_Jobs = ({ job }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [applications, setApplications] = useState([]);
+const Assigned_Jobs = ({ job }) => {
+//   const [showModal, setShowModal] = useState(false);
+//   const [applications, setApplications] = useState([]);
 
-  const viewApplications = async () => {
-    const url = `/api/getJobApplications/${job._id}`;
-    try {
-      const response = await axios.get(url);
-      setApplications(response.data.applications); // Assuming response data contains applications
-      setShowModal(true); // Show the modal
-    } catch (error) {
-      console.error("Error fetching job Applications:", error);
-    }
-  };
+//   const viewApplications = async () => {
+//     const url = `/api/getJobApplications/${job._id}`;
+//     try {
+//       const response = await axios.get(url);
+//       setApplications(response.data.applications); // Assuming response data contains applications
+//       setShowModal(true); // Show the modal
+//     } catch (error) {
+//       console.error("Error fetching job Applications:", error);
+//     }
+//   };
 
-  const assignJob = async (applicant_id) => {
-    const url = `/api/assignJob/${job._id}/${applicant_id}`;
-    try {
-      const response = await axios.post(url);
-       // Assuming response data contains applications
-      setShowModal(false); // Show the modal
-    } catch (error) {
-      console.error("Error fetching job Applications:", error);
-    }
-  }
+//   const assignJob = async (applicant_id) => {
+//     const url = `/api/assignJob/${job._id}/${applicant_id}`;
+//     try {
+//       const response = await axios.post(url);
+//        // Assuming response data contains applications
+//       setShowModal(false); // Show the modal
+//     } catch (error) {
+//       console.error("Error fetching job Applications:", error);
+//     }
+//   }
 
-  const closeModal = () => {
-    setShowModal(false);
-    setApplications([]);
-  };
+//   const closeModal = () => {
+//     setShowModal(false);
+//     setApplications([]);
+//   };
 
   return (
     <>
@@ -78,16 +78,18 @@ const Posted_Jobs = ({ job }) => {
           </div>
 
           <div className="flex justify-between items-center">
-            <span className="text-sm">Proposals: {job.proposals}</span>
-            <span className="text-sm">Posted By: {job.postedBy.name}</span>
+            {/* <span className="text-sm">Posted By: {job.postedBy.name}</span>
+            <span className="text-sm">Posted By: {job.assignedTo.name}</span> */}
+            <span className="text-sm">Progress Percent: {job.progressPercent}</span>
+            {/* <span className="text-sm">Completed: {job.progressPercent.name}</span> */}
           </div>
 
-          <button onClick={viewApplications} className="bg-green-600 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+          {/* <button onClick={viewApplications} className="bg-green-600 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
             View Applications
-          </button>
+          </button> */}
         </div>
       </div>
-      {showModal && (
+      {/* {showModal && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white rounded-lg p-8 w-3/4 text-black">
             <h2 className="text-xl font-bold mb-4">Job Applications</h2>
@@ -112,9 +114,9 @@ const Posted_Jobs = ({ job }) => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };
 
-export default Posted_Jobs;
+export default Assigned_Jobs;

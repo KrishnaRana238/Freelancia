@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Posted_Jobs from "./Posted_Jobs";
 import JobCard from "../Homepage/JobCard";
+import Assigned_Jobs from "./Assigned_Jobs";
 import axios from "axios";
 
 const AdminDetails = () => {
@@ -51,9 +52,7 @@ const AdminDetails = () => {
               <h2>
               Jobs Assigned:
                 {profileData.jobsAssigned.map((job, index) => (
-                  <h2 className="text-white" key={index}>
-                    {job}
-                  </h2>
+                  <Assigned_Jobs key={index} job={job}></Assigned_Jobs>
                 ))}
               </h2>
             </div>
