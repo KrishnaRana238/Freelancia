@@ -150,6 +150,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import JobCard from "../Homepage/JobCard";
 
 const Details = () => {
   const [profileData, setProfileData] = useState(null);
@@ -233,14 +234,14 @@ const Details = () => {
           {jobsApplied.length ? (
             <ul className="list-disc pl-6">
               {jobsApplied.map((job, index) => (
-                <li key={index} className="text-gray-600">{job.title}</li>
+                <JobCard key={job._id} job={job}/>
               ))}
             </ul>
           ) : (
             <p className="text-gray-600">No jobs applied for yet.</p>
           )}
 
-          <h3 className="text-xl font-semibold text-gray-700 mt-6 mb-2">Jobs Undertaken:</h3>
+          {/* <h3 className="text-xl font-semibold text-gray-700 mt-6 mb-2">Jobs Undertaken:</h3>
           {jobsUndertaken.length ? (
             <ul className="list-disc pl-6">
               {jobsUndertaken.map((job, index) => (
@@ -249,7 +250,7 @@ const Details = () => {
             </ul>
           ) : (
             <p className="text-gray-600">No jobs undertaken yet.</p>
-          )}
+          )} */}
         </div>
       </section>
 
