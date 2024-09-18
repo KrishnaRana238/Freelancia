@@ -58,7 +58,6 @@ const JobCard = ({ job, client }) => {
   return (
     <>
     <div className="flex space-x-4">
-      {/* Job Card */}
       <div className="flex-1 bg-gray-900 text-white hover:bg-gray-600 p-4 mt-4 rounded-lg shadow-md space-y-4">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold">{job.title}</h2>
@@ -116,7 +115,6 @@ const JobCard = ({ job, client }) => {
         </button>
       </div>
 
-      {/* Client Profile */}
     </div>
     </>
   );
